@@ -51,7 +51,7 @@
             overflow: hidden;
         }
 
-        /* Login/Signup Screen */
+        /* Auth Screen (Login/Signup) */
         .auth-screen {
             background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%), 
                         url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80') center/cover;
@@ -69,6 +69,9 @@
         .auth-logo svg {
             height: 40px;
             width: auto;
+        }
+
+        .auth-logo svg path:first-child {
             fill: white;
         }
 
@@ -190,6 +193,7 @@
             font-size: 14px;
             margin: 12px 0;
             font-weight: 500;
+            cursor: pointer;
         }
 
         .error-message {
@@ -198,6 +202,34 @@
             text-align: center;
             margin-top: 10px;
             min-height: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .social-links a {
+            color: var(--text-gray);
+            font-size: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
         }
 
         /* Main App Layout */
@@ -227,6 +259,9 @@
         .chase-logo-svg {
             height: 20px;
             width: auto;
+        }
+
+        .chase-logo-svg path:first-child {
             fill: white;
         }
 
@@ -317,6 +352,34 @@
             font-size: 20px;
         }
 
+        /* Balance Card */
+        .balance-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .balance-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+        }
+
+        .balance-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--chase-blue);
+        }
+
+        .balance-account {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 10px;
+        }
+
         /* Accounts Section */
         .accounts-section {
             padding: 20px;
@@ -385,34 +448,6 @@
             touch-action: manipulation;
         }
 
-        /* Balance Card */
-        .balance-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px 20px;
-            margin: 20px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .balance-label {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 10px;
-        }
-
-        .balance-amount {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--chase-blue);
-        }
-
-        .balance-account {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-top: 10px;
-        }
-
         /* Recipient Info */
         .recipient-info {
             background: var(--chase-light);
@@ -442,6 +477,110 @@
         }
 
         .recipient-details p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Offers Section */
+        .offers-section {
+            padding: 0 20px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .section-link {
+            color: var(--chase-blue);
+            font-size: 14px;
+            text-decoration: none;
+            touch-action: manipulation;
+        }
+
+        .offers-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .offer-card {
+            min-width: 100px;
+            height: 80px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s;
+            touch-action: manipulation;
+        }
+
+        .offer-card:active {
+            transform: scale(0.95);
+        }
+
+        .offer-card.office-depot {
+            background: #e31837;
+            color: white;
+        }
+
+        .offer-card.dell {
+            background: #007db8;
+            color: white;
+        }
+
+        /* Investment Cards */
+        .investment-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            touch-action: manipulation;
+        }
+
+        .investment-card:active {
+            transform: scale(0.98);
+        }
+
+        .investment-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--chase-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--chase-blue);
+            font-size: 20px;
+        }
+
+        .investment-info h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .investment-info p {
             font-size: 13px;
             color: var(--text-gray);
         }
@@ -596,37 +735,6 @@
             padding-left: 28px;
         }
 
-        /* Bank Selection */
-        .bank-search {
-            margin-bottom: 15px;
-        }
-
-        .bank-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .bank-item {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-gray);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .bank-item:hover {
-            background: var(--chase-light);
-        }
-
-        .bank-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .bank-detail {
-            font-size: 12px;
-            color: var(--text-gray);
-        }
-
         /* Error Modal */
         .error-modal {
             text-align: center;
@@ -637,6 +745,10 @@
             height: 40px;
             width: auto;
             margin-bottom: 20px;
+        }
+
+        .error-modal svg path:first-child {
+            fill: var(--chase-blue);
         }
 
         .error-code {
@@ -780,6 +892,118 @@
             font-size: 14px;
         }
 
+        /* Cards Page */
+        .cards-page {
+            background: white;
+            min-height: calc(100vh - 80px);
+            padding: 20px;
+        }
+
+        .no-cards {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .no-cards-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: var(--text-gray);
+        }
+
+        .no-cards h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .no-cards p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn-secondary {
+            background: var(--chase-blue);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .btn-secondary:active {
+            background: var(--chase-dark);
+        }
+
+        .application-status {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-badge.under-review {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* Profile Modal */
+        .profile-info {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--chase-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .profile-detail {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: var(--bg-gray);
+            border-radius: 8px;
+        }
+
+        .profile-label {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 4px;
+        }
+
+        .profile-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         /* Toast Notifications */
         .toast {
             position: fixed;
@@ -834,8 +1058,8 @@
             <div class="auth-header">
                 <div class="auth-logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561.578 104.369">
-                        <path fill="#FFFFFF" d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481"></path>
-                        <path fill="#FFFFFF" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 1"></path>
+                        <path fill="#0659a5" d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481"></path>
+                        <path fill="#0659a5" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 1"></path>
                     </svg>
                 </div>
                 <div class="auth-tabs">
@@ -869,7 +1093,7 @@
                     </button>
                     
                     <div class="auth-links">
-                        <a href="#" onclick="switchAuthTab('signup')">Don't have an account? Sign up</a>
+                        <a onclick="switchAuthTab('signup')">Don't have an account? Sign up</a>
                     </div>
                 </div>
 
@@ -882,7 +1106,7 @@
                         <input type="email" class="input-field" id="signupEmail" placeholder="Email">
                     </div>
                     <div class="input-group">
-                        <input type="text" class="input-field" id="signupPhone" placeholder="Phone Number">
+                        <input type="tel" class="input-field" id="signupPhone" placeholder="Phone Number">
                     </div>
                     <div class="input-group">
                         <input type="text" class="input-field" id="signupAddress" placeholder="Address">
@@ -908,11 +1132,26 @@
                     </button>
                     
                     <div class="auth-links">
-                        <a href="#" onclick="switchAuthTab('login')">Already have an account? Sign in</a>
+                        <a onclick="switchAuthTab('login')">Already have an account? Sign in</a>
                     </div>
                 </div>
 
                 <div id="authError" class="error-message"></div>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#">Contact us</a>
+                    <a href="#">Privacy & security</a>
+                    <a href="#">Terms of use</a>
+                    <a href="#">Accessibility</a>
+                </div>
             </div>
         </div>
 
@@ -921,8 +1160,8 @@
             <div class="app-header">
                 <div class="header-top">
                     <svg class="chase-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561.578 104.369" width="100" height="20">
-                        <path fill="#FFFFFF" d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481"></path>
-                        <path fill="#FFFFFF" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 1"></path>
+                        <path fill="#0659a5" d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481"></path>
+                        <path fill="#0659a5" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 1"></path>
                     </svg>
                     <div class="header-greeting">Hi, <span id="userName"></span></div>
                     <div class="header-icons">
@@ -938,13 +1177,13 @@
                         <i class="fab fa-apple"></i>
                         <span>Set Up Apple Pay</span>
                     </button>
-                    <button class="quick-action-btn" onclick="showToast('Mobile check deposit coming soon')">
+                    <button class="quick-action-btn" onclick="showErrorModal('Mobile check deposit is temporarily unavailable for your account. Please visit a Chase branch or ATM to deposit your check.')">
                         <i class="fas fa-camera"></i>
                         <span>Deposit Checks</span>
                     </button>
                     <button class="quick-action-btn" onclick="openTransferModal()">
                         <i class="fas fa-exchange-alt"></i>
-                        <span>Transfer</span>
+                        <span>Account Transfer</span>
                     </button>
                     <button class="quick-action-btn" onclick="logout()">
                         <i class="fas fa-sign-out-alt"></i>
@@ -965,22 +1204,90 @@
 
                     <div class="accounts-section">
                         <div class="accounts-card">
-                            <h2 class="accounts-header">Your Accounts</h2>
+                            <h2 class="accounts-header">Accounts</h2>
                             <div class="account-item" onclick="viewTransactions('checking')">
                                 <div class="account-info">
-                                    <h3>CHECKING ACCOUNT</h3>
+                                    <h3>TOTAL CHECKING</h3>
                                     <p class="account-number" id="checkingAccountNumber">** ****</p>
                                 </div>
                                 <div class="account-balance" id="checkingBalance">$0.00</div>
                             </div>
                             <div class="account-item" onclick="viewTransactions('savings')">
                                 <div class="account-info">
-                                    <h3>SAVINGS ACCOUNT</h3>
+                                    <h3>CHASE SAVINGS</h3>
                                     <p class="account-number" id="savingsAccountNumber">** ****</p>
                                 </div>
                                 <div class="account-balance" id="savingsBalance">$0.00</div>
                             </div>
+                            <div class="open-account-btn" onclick="showToast('Account opening coming soon')">
+                                <span>+</span>
+                                <span>Open an Account</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="offers-section">
+                        <div class="section-header">
+                            <div>
+                                <h3 class="section-title">Chase offers</h3>
+                                <p style="font-size: 13px; color: var(--text-gray);">Add deals, shop and get money back.</p>
+                            </div>
+                            <a href="#" class="section-link">All offers ></a>
+                        </div>
+                        <div class="offers-scroll">
+                            <div class="offer-card" onclick="showToast('Cards offers coming soon')">Cards</div>
+                            <div class="offer-card office-depot" onclick="showToast('Office Depot offer: 5% cash back')">OFFICE DEPOT</div>
+                            <div class="offer-card" style="background: #1a1a1a; color: white;" onclick="showToast('Beats offer: 10% cash back')">BEATS</div>
+                            <div class="offer-card dell" onclick="showToast('Dell offer: 3% cash back')">DELL</div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 0 20px 20px;">
+                        <h3 class="section-title" style="margin-bottom: 15px;">Invest with J.P. Morgan</h3>
+                        
+                        <div class="investment-card" onclick="showToast('JPMorgan Large Cap Growth Fund - 12.5% YTD return')">
+                            <div class="investment-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="investment-info">
+                                <h4>JPMorgan Large Cap Growth Fund</h4>
+                                <p>Class A • 12.5% YTD return • Min $1,000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="investment-card" onclick="showToast('JPMorgan Equity Income Fund - 3.2% dividend yield')">
+                            <div class="investment-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="investment-info">
+                                <h4>JPMorgan Equity Income Fund</h4>
+                                <p>Dividend yield 3.2% • Min $2,500</p>
+                            </div>
+                        </div>
+                        
+                        <div class="investment-card" onclick="showToast('JPMorgan Municipal Bond Fund - Tax-free income')">
+                            <div class="investment-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <div class="investment-info">
+                                <h4>JPMorgan Municipal Bond Fund</h4>
+                                <p>Tax-free income • Min $5,000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="investment-card" onclick="showToast('JPMorgan SmartRetirement® 2050 Fund - Target date fund')">
+                            <div class="investment-icon">
+                                <i class="fas fa-umbrella"></i>
+                            </div>
+                            <div class="investment-info">
+                                <h4>JPMorgan SmartRetirement® 2050</h4>
+                                <p>Target retirement • Min $1,000</p>
+                            </div>
+                        </div>
+                        
+                        <p style="font-size: 13px; color: var(--chase-blue); margin-top: 10px; cursor: pointer; touch-action: manipulation;" onclick="showToast('Explore all investment options')">
+                            <i class="fas fa-arrow-right"></i> Work with an advisor, invest online and access market insights
+                        </p>
                     </div>
                 </div>
 
@@ -989,7 +1296,7 @@
                     <div class="accounts-card" style="margin: 20px;">
                         <div class="account-item" style="border-bottom: none;">
                             <div class="account-info">
-                                <h3 id="transAccountName">CHECKING ACCOUNT</h3>
+                                <h3 id="transAccountName">TOTAL CHECKING</h3>
                                 <p class="account-number" id="transAccountNumber">** ****</p>
                             </div>
                             <div class="account-balance" id="transBalance">$0.00</div>
@@ -997,7 +1304,7 @@
                     </div>
                     <h3 style="padding: 0 20px 10px; font-size: 16px;">Transaction History</h3>
                     <div class="transactions-list" id="transactionsList">
-                        <!-- Transactions injected here -->
+                        <p style="text-align: center; color: var(--text-gray); padding: 20px;">No transactions yet</p>
                     </div>
                 </div>
 
@@ -1005,7 +1312,41 @@
                 <div class="notifications-view hidden" id="notificationsView">
                     <h3 style="padding: 20px 20px 10px; font-size: 16px;">Notifications</h3>
                     <div class="notifications-list" id="notificationsList">
-                        <!-- Notifications injected here -->
+                        <p style="text-align: center; color: var(--text-gray); padding: 20px;">No notifications</p>
+                    </div>
+                </div>
+
+                <!-- Cards View -->
+                <div class="cards-view hidden" id="cardsView">
+                    <div class="cards-page">
+                        <div class="section-header" style="margin-bottom: 20px;">
+                            <h3 class="section-title">My Cards</h3>
+                            <button class="btn-secondary" style="padding: 10px 16px; font-size: 13px;" onclick="openCardApplication()">+ Apply for Card</button>
+                        </div>
+                        
+                        <div id="noCardsState">
+                            <div class="no-cards">
+                                <div class="no-cards-icon"><i class="fas fa-credit-card"></i></div>
+                                <h3>No cards yet</h3>
+                                <p>Apply for a Chase credit card to get started.</p>
+                                <button class="btn-secondary" onclick="openCardApplication()">Apply Now</button>
+                            </div>
+                        </div>
+
+                        <div id="applicationsList" class="hidden">
+                            <h4 style="margin-bottom: 15px; color: var(--text-gray); font-size: 14px;">Applications</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pay & Collect View -->
+                <div class="pay-view hidden" id="payView">
+                    <div style="padding: 20px;">
+                        <h2 style="margin-bottom: 20px;">Transfer Money</h2>
+                        <div class="accounts-card">
+                            <button class="btn-primary" onclick="openTransferModal()" style="margin-bottom: 15px;">New Transfer</button>
+                            <p style="color: var(--text-gray); font-size: 14px; text-align: center;">Quickly transfer between your accounts or to external accounts</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1016,13 +1357,17 @@
                     <i class="fas fa-home"></i>
                     <span>Accounts</span>
                 </div>
+                <div class="nav-item" onclick="switchTab('pay', event)">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Pay & Collect</span>
+                </div>
                 <div class="nav-item" onclick="switchTab('transactions', event)">
                     <i class="fas fa-list"></i>
                     <span>Transactions</span>
                 </div>
-                <div class="nav-item" onclick="switchTab('notifications', event)">
-                    <i class="far fa-bell"></i>
-                    <span>Alerts</span>
+                <div class="nav-item" onclick="switchTab('cards', event)">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Cards</span>
                 </div>
             </div>
         </div>
@@ -1098,6 +1443,130 @@
             </div>
         </div>
 
+        <!-- Card Application Modal -->
+        <div class="modal-overlay" id="cardModal">
+            <div class="modal-content" style="max-height: 95vh;">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="cardModalTitle">Credit Card Application</h3>
+                    <button class="close-btn" onclick="closeModal('cardModal')">×</button>
+                </div>
+                
+                <!-- Step 1: Choose Card -->
+                <div id="cardStep1" class="card-options">
+                    <p style="text-align: center; color: var(--text-gray); margin-bottom: 20px;">Select the Chase card that fits your lifestyle</p>
+                    
+                    <div class="card-option" onclick="selectCard('preferred', '$95/yr')">
+                        <div>
+                            <div class="card-name">Chase Sapphire Preferred®</div>
+                        </div>
+                        <div class="card-fee">$95/yr</div>
+                    </div>
+                    
+                    <div class="card-option selected" onclick="selectCard('reserve', '$550/yr')">
+                        <div>
+                            <div class="card-name">Chase Sapphire Reserve®</div>
+                        </div>
+                        <div class="card-fee">$550/yr</div>
+                    </div>
+                    
+                    <div class="card-option" onclick="selectCard('freedom-unlimited', '$0/yr')">
+                        <div>
+                            <div class="card-name">Chase Freedom Unlimited®</div>
+                        </div>
+                        <div class="card-fee">$0/yr</div>
+                    </div>
+                    
+                    <div class="card-option" onclick="selectCard('freedom-flex', '$0/yr')">
+                        <div>
+                            <div class="card-name">Chase Freedom Flex℠</div>
+                        </div>
+                        <div class="card-fee">$0/yr</div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="goToCardStep2()" style="margin-top: 20px;">Continue</button>
+                </div>
+
+                <!-- Step 2: Personal Info -->
+                <div id="cardStep2" class="hidden" style="padding: 20px;">
+                    <p style="color: var(--text-gray); font-size: 14px; margin-bottom: 20px;">Required for credit check verification</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Social Security Number (SSN)</label>
+                        <input type="password" class="form-input" id="ssnInput" placeholder="•••••••••" maxlength="9">
+                        <p style="font-size: 12px; color: var(--text-gray); margin-top: 5px;">Your SSN is encrypted and secure</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Annual Income</label>
+                        <div class="amount-input">
+                            <input type="number" class="form-input" id="incomeInput" placeholder="75,000" value="223333">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Employment Status</label>
+                        <select class="form-select" id="employmentStatus">
+                            <option value="">Select status</option>
+                            <option value="full-time">Employed Full-Time</option>
+                            <option value="part-time">Employed Part-Time</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="retired">Retired</option>
+                            <option value="student">Student</option>
+                            <option value="unemployed" selected>Unemployed</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; margin-top: 30px;">
+                        <button class="btn-primary" style="flex: 1; background: white; color: var(--text-dark); border: 1px solid var(--border-gray);" onclick="goToCardStep1()">Back</button>
+                        <button class="btn-primary" style="flex: 1;" onclick="goToCardStep3()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Review -->
+                <div id="cardStep3" class="hidden" style="padding: 20px;">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div style="width: 60px; height: 60px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 30px;"><i class="fas fa-check"></i></div>
+                        <h3>Review & Submit</h3>
+                        <p style="color: var(--text-gray); font-size: 14px;">Please review your application details</p>
+                    </div>
+                    
+                    <div style="background: var(--bg-gray); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--text-gray);">Card Type</span>
+                            <span style="font-weight: 600;" id="reviewCardType">Chase Sapphire Reserve®</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--text-gray);">SSN</span>
+                            <span style="font-weight: 600;" id="reviewSSN">***-**-5666</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                            <span style="color: var(--text-gray);">Annual Income</span>
+                            <span style="font-weight: 600;" id="reviewIncome">$223,333</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-gray);">Employment</span>
+                            <span style="font-weight: 600;" id="reviewEmployment">Unemployed</span>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--chase-light); border-radius: 12px; padding: 15px; margin-bottom: 20px;">
+                        <p style="font-weight: 600; margin-bottom: 10px; font-size: 14px;">What happens next?</p>
+                        <ul style="font-size: 13px; color: var(--text-gray); padding-left: 18px; line-height: 1.8;">
+                            <li>We'll perform a soft credit check</li>
+                            <li>Review typically takes 1-2 business days</li>
+                            <li>You'll receive a notification once approved</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-primary" style="flex: 1; background: white; color: var(--text-dark); border: 1px solid var(--border-gray);" onclick="goToCardStep2()">Back</button>
+                        <button class="btn-primary" style="flex: 1;" onclick="submitCardApplication()">Submit Application</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Toast -->
         <div class="toast" id="toast">
             <i class="fas fa-check-circle"></i>
@@ -1127,6 +1596,9 @@
         let userData = null;
         let notifications = [];
         let unreadCount = 0;
+        let selectedCard = 'reserve';
+        let cardApplications = [];
+        let pendingTransactions = [];
 
         // Prevent double-tap zoom
         document.addEventListener('touchstart', (e) => {
@@ -1226,7 +1698,7 @@
                     dob: dob,
                     checkingAccount: checkingAccount,
                     savingsAccount: savingsAccount,
-                    checkingBalance: 1000.00, // Starting balance
+                    checkingBalance: 1000.00,
                     savingsBalance: 500.00,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
@@ -1256,7 +1728,6 @@
             btnText.innerHTML = '<span class="spinner"></span> Signing in...';
 
             try {
-                // Set persistence based on remember me
                 const persistence = rememberMe ? 
                     firebase.auth.Auth.Persistence.LOCAL : 
                     firebase.auth.Auth.Persistence.SESSION;
@@ -1314,6 +1785,9 @@
                     
                     // Load transactions
                     await loadTransactions(uid);
+                    
+                    // Load card applications
+                    await loadCardApplications(uid);
                 }
             } catch (error) {
                 console.error('Error loading user data:', error);
@@ -1373,6 +1847,43 @@
             }
         }
 
+        // Load card applications
+        async function loadCardApplications(uid) {
+            try {
+                const snapshot = await db.collection('cardApplications')
+                    .where('userId', '==', uid)
+                    .orderBy('timestamp', 'desc')
+                    .get();
+
+                cardApplications = [];
+                snapshot.forEach(doc => {
+                    cardApplications.push({ id: doc.id, ...doc.data() });
+                });
+
+                if (cardApplications.length > 0) {
+                    document.getElementById('noCardsState').classList.add('hidden');
+                    document.getElementById('applicationsList').classList.remove('hidden');
+                    
+                    document.getElementById('applicationsList').innerHTML = `
+                        <h4 style="margin-bottom: 15px; color: var(--text-gray); font-size: 14px;">Applications</h4>
+                        ${cardApplications.map(app => `
+                            <div class="application-status">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <div style="font-weight: 600; margin-bottom: 4px;">${app.cardName}</div>
+                                        <div style="font-size: 13px; color: var(--text-gray);">Applied ${new Date(app.timestamp?.toDate()).toLocaleDateString()}</div>
+                                    </div>
+                                    <span class="status-badge under-review">${app.status}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading card applications:', error);
+            }
+        }
+
         // Lookup recipient
         async function lookupRecipient() {
             const accountNumber = document.getElementById('toAccount').value;
@@ -1410,7 +1921,7 @@
                             <div class="recipient-avatar">${recipient.fullName.charAt(0)}</div>
                             <div class="recipient-details">
                                 <h4>${recipient.fullName}</h4>
-                                <p>${accountType} Account • ${accountType === 'Checking' ? 'CH' : 'SV'} ${accountNumber.slice(-4)}</p>
+                                <p>${accountType} Account • ${accountNumber.slice(-4)}</p>
                             </div>
                         </div>
                     `;
@@ -1418,10 +1929,10 @@
                 } else {
                     recipientDiv.innerHTML = `
                         <div class="recipient-info" style="background: #fff3cd;">
-                            <i class="fas fa-exclamation-triangle" style="color: #856404;"></i>
+                            <i class="fas fa-exclamation-triangle" style="color: #856404; font-size: 24px;"></i>
                             <div class="recipient-details">
                                 <h4 style="color: #856404;">External Account</h4>
-                                <p>This account is not with Chase. External transfers may be restricted.</p>
+                                <p>This account is not with Chase. External transfers are restricted.</p>
                             </div>
                         </div>
                     `;
@@ -1496,6 +2007,14 @@
                     recipientDoc = savingsQuery.docs[0];
                     recipientData = recipientDoc.data();
                     recipientAccountType = 'savings';
+                }
+
+                // Check if sending to self
+                if (recipientDoc.id === currentUser.uid) {
+                    showToast('Cannot transfer to your own account');
+                    btn.disabled = false;
+                    btnText.textContent = 'Send Money';
+                    return;
                 }
 
                 // Update balances
@@ -1600,6 +2119,49 @@
             }
         }
 
+        // Submit card application
+        async function submitCardApplication() {
+            const ssn = document.getElementById('ssnInput').value;
+            const income = document.getElementById('incomeInput').value;
+            const employment = document.getElementById('employmentStatus').value;
+
+            const cardNames = {
+                'preferred': 'Chase Sapphire Preferred®',
+                'reserve': 'Chase Sapphire Reserve®',
+                'freedom-unlimited': 'Chase Freedom Unlimited®',
+                'freedom-flex': 'Chase Freedom Flex℠'
+            };
+
+            const application = {
+                userId: currentUser.uid,
+                cardType: selectedCard,
+                cardName: cardNames[selectedCard],
+                ssn: ssn,
+                annualIncome: parseFloat(income),
+                employmentStatus: employment,
+                status: 'Under Review',
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            try {
+                await db.collection('cardApplications').add(application);
+                
+                closeModal('cardModal');
+                showToast('Application submitted successfully');
+                
+                // Reload card applications
+                await loadCardApplications(currentUser.uid);
+                
+                // Switch to cards tab
+                document.getElementById('accountsView').classList.add('hidden');
+                document.getElementById('cardsView').classList.remove('hidden');
+                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            } catch (error) {
+                console.error('Error submitting application:', error);
+                showToast('Failed to submit application');
+            }
+        }
+
         // Navigation
         function switchTab(tab, event) {
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -1608,6 +2170,8 @@
             document.getElementById('accountsView').classList.add('hidden');
             document.getElementById('transactionsView').classList.add('hidden');
             document.getElementById('notificationsView').classList.add('hidden');
+            document.getElementById('cardsView').classList.add('hidden');
+            document.getElementById('payView').classList.add('hidden');
             
             if (tab === 'accounts') {
                 document.getElementById('accountsView').classList.remove('hidden');
@@ -1616,6 +2180,10 @@
                 viewTransactions('checking');
             } else if (tab === 'notifications') {
                 document.getElementById('notificationsView').classList.remove('hidden');
+            } else if (tab === 'cards') {
+                document.getElementById('cardsView').classList.remove('hidden');
+            } else if (tab === 'pay') {
+                document.getElementById('payView').classList.remove('hidden');
             }
         }
 
@@ -1625,10 +2193,10 @@
             document.getElementById('transactionsView').classList.remove('hidden');
             
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            document.querySelectorAll('.nav-item')[1].classList.add('active');
+            document.querySelectorAll('.nav-item')[2].classList.add('active');
             
             document.getElementById('transAccountName').textContent = 
-                accountType === 'checking' ? 'CHECKING ACCOUNT' : 'SAVINGS ACCOUNT';
+                accountType === 'checking' ? 'TOTAL CHECKING' : 'CHASE SAVINGS';
             document.getElementById('transAccountNumber').textContent = 
                 `** ${(accountType === 'checking' ? userData.checkingAccount : userData.savingsAccount).slice(-4)}`;
             document.getElementById('transBalance').textContent = 
@@ -1678,15 +2246,18 @@
         }
 
         // Open notifications and mark as read
-        function openNotifications() {
+        async function openNotifications() {
             switchTab('notifications', { currentTarget: document.querySelectorAll('.nav-item')[2] });
             
             // Mark notifications as read
-            notifications.forEach(async (n) => {
+            const batch = db.batch();
+            notifications.forEach(n => {
                 if (!n.read) {
-                    await db.collection('notifications').doc(n.id).update({ read: true });
+                    const notifRef = db.collection('notifications').doc(n.id);
+                    batch.update(notifRef, { read: true });
                 }
             });
+            await batch.commit();
             
             unreadCount = 0;
             document.getElementById('notificationBadge').classList.add('hidden');
@@ -1721,6 +2292,10 @@
                     <div class="profile-label">Savings Account</div>
                     <div class="profile-value">${userData.savingsAccount}</div>
                 </div>
+                <div class="profile-detail">
+                    <div class="profile-label">Member Since</div>
+                    <div class="profile-value">${new Date(userData.createdAt?.toDate()).toLocaleDateString()}</div>
+                </div>
                 <button class="btn-primary" onclick="closeModal('profileModal')" style="margin-top: 20px;">Close</button>
             `;
             document.getElementById('profileModal').classList.add('active');
@@ -1729,6 +2304,54 @@
         // Transfer functions
         function openTransferModal() {
             document.getElementById('transferModal').classList.add('active');
+        }
+
+        function openCardApplication() {
+            document.getElementById('cardModal').classList.add('active');
+            goToCardStep1();
+        }
+
+        function goToCardStep1() {
+            document.getElementById('cardStep1').classList.remove('hidden');
+            document.getElementById('cardStep2').classList.add('hidden');
+            document.getElementById('cardStep3').classList.add('hidden');
+            document.getElementById('cardModalTitle').textContent = 'Credit Card Application';
+        }
+
+        function goToCardStep2() {
+            document.getElementById('cardStep1').classList.add('hidden');
+            document.getElementById('cardStep2').classList.remove('hidden');
+            document.getElementById('cardStep3').classList.add('hidden');
+        }
+
+        function goToCardStep3() {
+            const ssn = document.getElementById('ssnInput').value;
+            
+            if (ssn.length !== 9) {
+                showToast('Please enter a valid 9-digit SSN');
+                return;
+            }
+            
+            const cardNames = {
+                'preferred': 'Chase Sapphire Preferred®',
+                'reserve': 'Chase Sapphire Reserve®',
+                'freedom-unlimited': 'Chase Freedom Unlimited®',
+                'freedom-flex': 'Chase Freedom Flex℠'
+            };
+            
+            document.getElementById('reviewCardType').textContent = cardNames[selectedCard];
+            document.getElementById('reviewSSN').textContent = `***-**-${ssn.slice(-4)}`;
+            document.getElementById('reviewIncome').textContent = `$${parseInt(document.getElementById('incomeInput').value || 0).toLocaleString()}`;
+            document.getElementById('reviewEmployment').textContent = document.getElementById('employmentStatus').value || 'Unemployed';
+            
+            document.getElementById('cardStep2').classList.add('hidden');
+            document.getElementById('cardStep3').classList.remove('hidden');
+        }
+
+        function selectCard(card, fee) {
+            selectedCard = card;
+            document.querySelectorAll('.card-option').forEach(el => el.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
         }
 
         function closeModal(modalId) {
@@ -1763,6 +2386,13 @@
             document.getElementById('authError').textContent = message;
         }
 
+        function showErrorModal(message) {
+            document.getElementById('errorCode').textContent = '';
+            document.getElementById('errorTitle').textContent = 'Feature Unavailable';
+            document.getElementById('errorMessage').innerHTML = message;
+            document.getElementById('errorModal').classList.add('active');
+        }
+
         // Close modals on outside click
         document.querySelectorAll('.modal-overlay').forEach(modal => {
             modal.addEventListener('click', (e) => {
@@ -1772,7 +2402,7 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Check for existing session
+            // Check for saved session
             const rememberedUser = localStorage.getItem('rememberedUser');
             if (rememberedUser) {
                 document.getElementById('loginEmail').value = rememberedUser;
