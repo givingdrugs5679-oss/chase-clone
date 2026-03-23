@@ -30,7 +30,6 @@
             --success: #28a745;
             --error: #dc3545;
             --warning: #ffc107;
-            --pending: #ffc107;
         }
 
         body {
@@ -51,7 +50,7 @@
             overflow: hidden;
         }
 
-        /* Auth Screen (Login/Signup) */
+        /* Auth Screen */
         .auth-screen {
             background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%), 
                         url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80') center/cover;
@@ -200,32 +199,70 @@
             min-height: 20px;
         }
 
-        .social-links {
+        /* Verification Method Selector */
+        .verification-methods {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .social-links a {
-            color: var(--text-gray);
-            font-size: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: 15px;
-            margin-top: 20px;
-            font-size: 12px;
+            margin-bottom: 25px;
         }
 
-        .footer-links a {
-            color: var(--text-gray);
-            text-decoration: none;
+        .verification-method {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: var(--bg-gray);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .verification-method.active {
+            background: var(--chase-light);
+            border-color: var(--chase-blue);
+        }
+
+        .verification-method i {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--chase-blue);
+        }
+
+        .verification-method span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Phone Verification */
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .country-code {
+            width: 80px;
+            padding: 14px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .phone-number-input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .otp-input {
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 8px;
+            padding: 12px;
         }
 
         /* Verification Modal */
@@ -245,6 +282,13 @@
             margin: 0 auto 20px;
             color: var(--chase-blue);
             font-size: 30px;
+        }
+
+        .resend-link {
+            color: var(--chase-blue);
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 14px;
         }
 
         /* Main App Layout */
@@ -352,7 +396,6 @@
             align-items: center;
             gap: 6px;
             transition: background 0.3s;
-            touch-action: manipulation;
         }
 
         /* Balance Card */
@@ -365,22 +408,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .balance-label {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-bottom: 10px;
-        }
-
         .balance-amount {
             font-size: 36px;
             font-weight: 700;
             color: var(--chase-blue);
-        }
-
-        .balance-account {
-            font-size: 14px;
-            color: var(--text-gray);
-            margin-top: 10px;
         }
 
         /* Accounts Section */
@@ -396,13 +427,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .accounts-header {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
         .account-item {
             display: flex;
             justify-content: space-between;
@@ -410,13 +434,11 @@
             padding: 15px 0;
             border-bottom: 1px solid var(--border-gray);
             cursor: pointer;
-            touch-action: manipulation;
         }
 
         .account-info h3 {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-dark);
         }
 
         .account-number {
@@ -428,130 +450,6 @@
         .account-balance {
             font-size: 18px;
             font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .open-account-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--chase-blue);
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-        /* Recipient Info */
-        .recipient-info {
-            background: var(--chase-light);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .recipient-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--chase-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Offers Section */
-        .offers-section {
-            padding: 0 20px 20px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .section-link {
-            color: var(--chase-blue);
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        .offers-scroll {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-
-        .offer-card {
-            min-width: 100px;
-            height: 80px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            cursor: pointer;
-        }
-
-        .offer-card.office-depot {
-            background: #e31837;
-            color: white;
-        }
-
-        .offer-card.dell {
-            background: #007db8;
-            color: white;
-        }
-
-        /* Investment Cards */
-        .investment-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .investment-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--chase-light);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--chase-blue);
-            font-size: 20px;
-        }
-
-        .investment-info h4 {
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-
-        .investment-info p {
-            font-size: 13px;
-            color: var(--text-gray);
         }
 
         /* Bottom Navigation */
@@ -662,7 +560,6 @@
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 8px;
-            color: var(--text-dark);
         }
 
         .form-input, .form-select {
@@ -718,107 +615,6 @@
         .error-modal {
             text-align: center;
             padding: 30px 20px;
-        }
-
-        .error-modal svg {
-            height: 40px;
-            width: auto;
-            margin-bottom: 20px;
-        }
-
-        /* Transactions */
-        .transactions-list {
-            padding: 20px;
-            background: white;
-        }
-
-        .transaction-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        /* Notifications */
-        .notifications-list {
-            padding: 20px;
-        }
-
-        .notification-item {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--chase-blue);
-        }
-
-        /* Credit Card Application */
-        .card-options {
-            padding: 20px;
-        }
-
-        .card-option {
-            border: 2px solid var(--border-gray);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-option.selected {
-            border-color: var(--chase-blue);
-            background: var(--chase-light);
-        }
-
-        /* Cards Page */
-        .cards-page {
-            background: white;
-            padding: 20px;
-        }
-
-        .no-cards {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .btn-secondary {
-            background: var(--chase-blue);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        /* Profile Modal */
-        .profile-info {
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--chase-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 32px;
-            font-weight: 600;
-        }
-
-        .profile-detail {
-            margin-bottom: 15px;
-            padding: 10px;
-            background: var(--bg-gray);
-            border-radius: 8px;
         }
 
         /* Toast */
@@ -939,6 +735,36 @@
                         </span>
                     </div>
                     
+                    <!-- Verification Method Selector -->
+                    <div class="verification-methods">
+                        <div class="verification-method active" onclick="selectVerificationMethod('email')" id="methodEmail">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                        <div class="verification-method" onclick="selectVerificationMethod('phone')" id="methodPhone">
+                            <i class="fas fa-phone"></i>
+                            <span>Phone</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone Verification Fields (hidden by default) -->
+                    <div id="phoneVerificationFields" class="hidden">
+                        <div class="phone-input-group">
+                            <select class="country-code" id="countryCode">
+                                <option value="+1">+1 (US)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+234">+234 (NG)</option>
+                                <option value="+91">+91 (IN)</option>
+                            </select>
+                            <input type="tel" class="phone-number-input" id="signupPhoneNumber" placeholder="Phone Number">
+                        </div>
+                        <div id="phoneOtpSection" class="hidden">
+                            <div class="input-group">
+                                <input type="text" class="form-input otp-input" id="phoneOtpCode" placeholder="6-digit code" maxlength="6">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <button class="btn-primary" id="signupBtn" onclick="handleSignup()">
                         <span id="signupBtnText">Create Account</span>
                     </button>
@@ -971,30 +797,32 @@
         <div class="modal-overlay" id="verificationModal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Verify Your Email</h3>
+                    <h3 class="modal-title">Verify Your Account</h3>
                     <button class="close-btn" onclick="closeModal('verificationModal')">×</button>
                 </div>
                 <div class="verification-modal">
-                    <div class="verification-icon">
+                    <div class="verification-icon" id="verificationIcon">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <p style="margin-bottom: 10px;">We've sent a verification email to:</p>
-                    <p style="font-weight: 600; margin-bottom: 20px;" id="verificationEmail"></p>
-                    <p style="font-size: 14px; color: var(--text-gray); margin-bottom: 20px;">Please check your inbox and click the verification link.</p>
-                    <button class="btn-primary" onclick="checkEmailVerified()">I've Verified My Email</button>
+                    <p id="verificationMessage">We've sent a verification email to:</p>
+                    <p style="font-weight: 600; margin-bottom: 20px;" id="verificationTarget"></p>
+                    <div id="verificationInputSection" class="hidden">
+                        <input type="text" class="form-input otp-input" id="otpCodeInput" placeholder="Enter 6-digit code" maxlength="6" style="text-align: center; letter-spacing: 4px;">
+                    </div>
+                    <button class="btn-primary" id="verifyButton" onclick="verifyAccount()">Verify</button>
                     <div style="margin-top: 15px;">
-                        <span class="resend-link" style="color: var(--chase-blue); cursor: pointer; text-decoration: underline;" onclick="resendVerificationEmail()">Resend Verification Email</span>
+                        <span class="resend-link" onclick="resendVerification()">Resend Code</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Main App (Simplified - contains all original features) -->
+        <!-- Main App -->
         <div class="main-app" id="mainApp">
             <div class="app-header">
                 <div class="header-top">
                     <div class="header-left">
-                        <svg class="chase-logo-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 48 48">
+                        <svg class="chase-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                             <path fill="#ffffff" d="M42,17L30,6H19c-0.552,0-1,0.448-1,1v10H42z"></path>
                             <path fill="#ffffff" d="M31,43l11-12V20c0-0.552-0.448-1-1-1H31V43z"></path>
                             <path fill="#ffffff" d="M5,32l12,11h11c0.552,0,1-0.448,1-1V32H5z"></path>
@@ -1045,11 +873,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="transactions-view hidden" id="transactionsView">...</div>
-                <div class="notifications-view hidden" id="notificationsView">...</div>
-                <div class="cards-view hidden" id="cardsView">...</div>
-                <div class="pay-view hidden" id="payView">...</div>
+                <div class="transactions-view hidden" id="transactionsView"><div class="transactions-list"></div></div>
+                <div class="notifications-view hidden" id="notificationsView"><div class="notifications-list"></div></div>
+                <div class="cards-view hidden" id="cardsView"><div class="cards-page"></div></div>
+                <div class="pay-view hidden" id="payView"><div class="transfer-form"></div></div>
             </div>
+
             <div class="bottom-nav">
                 <div class="nav-item active" onclick="switchTab('accounts', event)"><i class="fas fa-home"></i><span>Accounts</span></div>
                 <div class="nav-item" onclick="switchTab('pay', event)"><i class="fas fa-exchange-alt"></i><span>Pay & Collect</span></div>
@@ -1059,11 +888,11 @@
         </div>
 
         <!-- Other Modals -->
-        <div class="modal-overlay" id="transferModal"><div class="modal-content">...</div></div>
-        <div class="modal-overlay" id="successModal"><div class="modal-content">...</div></div>
-        <div class="modal-overlay" id="errorModal"><div class="modal-content">...</div></div>
-        <div class="modal-overlay" id="profileModal"><div class="modal-content">...</div></div>
-        <div class="modal-overlay" id="cardModal"><div class="modal-content">...</div></div>
+        <div class="modal-overlay" id="transferModal"><div class="modal-content"><div class="transfer-form"></div></div></div>
+        <div class="modal-overlay" id="successModal"><div class="modal-content"><div class="success-modal"></div></div></div>
+        <div class="modal-overlay" id="errorModal"><div class="modal-content"><div class="error-modal"></div></div></div>
+        <div class="modal-overlay" id="profileModal"><div class="modal-content"><div class="profile-info"></div></div></div>
+        <div class="modal-overlay" id="cardModal"><div class="modal-content"><div class="card-options"></div></div></div>
         <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage"></span></div>
     </div>
 
@@ -1087,8 +916,205 @@
         let userData = null;
         let pendingUser = null;
         let pendingUserData = null;
+        let selectedVerificationMethod = 'email';
+        let phoneVerificationId = null;
+        let phoneNumber = null;
 
-        // Signup with Firebase Email Verification
+        // Select verification method
+        function selectVerificationMethod(method) {
+            selectedVerificationMethod = method;
+            document.getElementById('methodEmail').classList.remove('active');
+            document.getElementById('methodPhone').classList.remove('active');
+            document.getElementById(`method${method.charAt(0).toUpperCase() + method.slice(1)}`).classList.add('active');
+            
+            const phoneFields = document.getElementById('phoneVerificationFields');
+            if (method === 'phone') {
+                phoneFields.classList.remove('hidden');
+            } else {
+                phoneFields.classList.add('hidden');
+                document.getElementById('phoneOtpSection').classList.add('hidden');
+            }
+        }
+
+        // Send custom HTML email
+        async function sendCustomVerificationEmail(email, userName, verificationLink) {
+            // Shorten the link (you can use a URL shortener service)
+            const shortLink = verificationLink; // You can integrate a URL shortener here
+            
+            const emailHtml = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Verify Your Email - Chase Bank</title>
+                    <style>
+                        body {
+                            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                            background-color: #f4f4f4;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .container {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            background-color: #ffffff;
+                            border-radius: 20px;
+                            overflow: hidden;
+                            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                        }
+                        .header {
+                            background: linear-gradient(135deg, #0659a5 0%, #04427c 100%);
+                            padding: 30px 20px;
+                            text-align: center;
+                        }
+                        .header svg {
+                            height: 40px;
+                            width: auto;
+                        }
+                        .content {
+                            padding: 40px 30px;
+                            text-align: center;
+                        }
+                        .greeting {
+                            font-size: 24px;
+                            font-weight: 600;
+                            color: #1a1a1a;
+                            margin-bottom: 15px;
+                        }
+                        .message {
+                            font-size: 16px;
+                            color: #666666;
+                            line-height: 1.6;
+                            margin-bottom: 30px;
+                        }
+                        .verification-link {
+                            display: inline-block;
+                            background-color: #0659a5;
+                            color: white;
+                            text-decoration: none;
+                            padding: 14px 32px;
+                            border-radius: 8px;
+                            font-weight: 600;
+                            font-size: 16px;
+                            margin: 20px 0;
+                            transition: background-color 0.3s;
+                        }
+                        .verification-link:hover {
+                            background-color: #04427c;
+                        }
+                        .or-text {
+                            color: #999;
+                            font-size: 14px;
+                            margin: 20px 0;
+                        }
+                        .manual-link {
+                            font-size: 14px;
+                            color: #0659a5;
+                            word-break: break-all;
+                            background-color: #f4f4f4;
+                            padding: 12px;
+                            border-radius: 8px;
+                            margin-top: 15px;
+                        }
+                        .footer {
+                            background-color: #f8f9fa;
+                            padding: 20px;
+                            text-align: center;
+                            border-top: 1px solid #e0e0e0;
+                        }
+                        .footer p {
+                            font-size: 12px;
+                            color: #999;
+                            margin: 5px 0;
+                        }
+                        .chase-blue {
+                            color: #0659a5;
+                        }
+                        .security-note {
+                            background-color: #fff3cd;
+                            border-left: 4px solid #ffc107;
+                            padding: 15px;
+                            margin-top: 25px;
+                            text-align: left;
+                            border-radius: 8px;
+                        }
+                        .security-note p {
+                            font-size: 13px;
+                            color: #856404;
+                            margin: 0;
+                        }
+                    </style>
+                </head>
+                <body style="background-color: #f4f4f4; padding: 20px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                    <div class="container">
+                        <div class="header">
+                            <svg viewBox="0 -228.6 561.578 561.578" xmlns="http://www.w3.org/2000/svg" width="150" height="40">
+                                <path d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481" fill="#FFFFFF"></path>
+                                <path fill="#FFFFFF" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 15.475 9.476 21.389 18.949 21.432h33.275c3.455 0 6.264.572 6.264 6.416l-.004 6.754c-.086 5.236-2.711 6.447-6.379 6.447H275.83l-8.967 13.979h53.762c12.972 0 21.773-6.447 21.773-21.353V65.06c0-14.408-8.176-21.207-20.859-21.207h-31.77c-3.525 0-5.976-.967-5.976-6.184l-.004-5.492c0-4.443 1.688-6.066 5.791-6.066l41.683-.016 8.715-13.69-53.031.015M206.863 12.465L169.184 91.9h17.811l7.338-16.405h40.941l7.315 16.405h17.882l-37.765-79.436-15.843.001m7.896 16.488l14.479 33.021h-28.867l14.388-33.021z"></path>
+                            </svg>
+                        </div>
+                        <div class="content">
+                            <div class="greeting">Hello, ${userName}!</div>
+                            <div class="message">
+                                Thank you for choosing Chase Bank. To ensure the security of your account, please verify your email address to complete your registration.
+                            </div>
+                            <a href="${shortLink}" class="verification-link">Verify Email Address</a>
+                            <div class="or-text">— OR —</div>
+                            <div class="manual-link">
+                                <strong>Copy and paste this link:</strong><br>
+                                ${shortLink}
+                            </div>
+                            <div class="security-note">
+                                <p><strong>🔒 Security Tip:</strong> This link will expire in 24 hours for your security. If you didn't request this, please ignore this email.</p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <p>© 2024 JPMorgan Chase & Co. All rights reserved.</p>
+                            <p>Chase Bank, 270 Park Avenue, New York, NY 10017</p>
+                            <p>This is an automated message, please do not reply to this email.</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Send email using a service (you'd need EmailJS or a backend endpoint)
+            // For now, we'll use Firebase's built-in email with a custom template via Firebase Console
+            // Firebase allows customizing email templates in the Authentication section
+            
+            // To use custom HTML emails, you'd need a service like:
+            // - EmailJS
+            // - SendGrid
+            // - AWS SES
+            // For now, we'll use Firebase's built-in email which can be customized in the console
+            
+            // Note: You can customize Firebase's email templates in:
+            // Firebase Console → Authentication → Templates
+            // There you can edit the email verification template with HTML/CSS
+        }
+
+        // Send phone verification
+        async function sendPhoneVerification(phoneNumber) {
+            const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                'size': 'invisible',
+                'callback': (response) => {
+                    console.log('reCAPTCHA verified');
+                }
+            });
+            
+            try {
+                const verificationId = await auth.signInWithPhoneNumber(phoneNumber, appVerifier);
+                phoneVerificationId = verificationId;
+                return true;
+            } catch (error) {
+                console.error('Phone verification error:', error);
+                showToast('Failed to send verification code: ' + error.message);
+                return false;
+            }
+        }
+
+        // Handle Signup with Email or Phone
         async function handleSignup() {
             const fullName = document.getElementById('signupFullName').value;
             const email = document.getElementById('signupEmail').value;
@@ -1122,10 +1148,7 @@
                 const userCredential = await auth.createUserWithEmailAndPassword(email, password);
                 const user = userCredential.user;
 
-                // Send verification email
-                await user.sendEmailVerification();
-
-                // Store user data temporarily
+                // Generate account numbers
                 const checkingAccount = 'CH' + Math.floor(10000000 + Math.random() * 90000000);
                 const savingsAccount = 'SV' + Math.floor(10000000 + Math.random() * 90000000);
 
@@ -1140,15 +1163,66 @@
                     checkingBalance: 1000.00,
                     savingsBalance: 500.00,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    isVerified: false
+                    isVerified: false,
+                    verificationMethod: selectedVerificationMethod
                 };
                 pendingUser = user;
 
-                // Show verification modal
-                document.getElementById('verificationEmail').textContent = email;
-                document.getElementById('verificationModal').classList.add('active');
+                if (selectedVerificationMethod === 'email') {
+                    // Send verification email with custom link
+                    const actionCodeSettings = {
+                        url: window.location.href,
+                        handleCodeInApp: true
+                    };
+                    
+                    await user.sendEmailVerification(actionCodeSettings);
+                    
+                    document.getElementById('verificationIcon').innerHTML = '<i class="fas fa-envelope"></i>';
+                    document.getElementById('verificationMessage').textContent = 'We\'ve sent a verification email to:';
+                    document.getElementById('verificationTarget').textContent = email;
+                    document.getElementById('verificationInputSection').classList.add('hidden');
+                    document.getElementById('verifyButton').textContent = 'I\'ve Verified My Email';
+                    document.getElementById('verifyButton').onclick = checkEmailVerified;
+                    
+                    showToast('Verification email sent! Please check your inbox.');
+                } else {
+                    // Phone verification
+                    const countryCode = document.getElementById('countryCode').value;
+                    const phoneNumber = document.getElementById('signupPhoneNumber').value;
+                    
+                    if (!phoneNumber) {
+                        showAuthError('Please enter your phone number');
+                        btn.disabled = false;
+                        btnText.textContent = 'Create Account';
+                        return;
+                    }
+                    
+                    const fullPhoneNumber = countryCode + phoneNumber;
+                    
+                    document.getElementById('verificationIcon').innerHTML = '<i class="fas fa-phone"></i>';
+                    document.getElementById('verificationMessage').textContent = 'We\'ve sent a verification code to:';
+                    document.getElementById('verificationTarget').textContent = fullPhoneNumber;
+                    document.getElementById('verificationInputSection').classList.remove('hidden');
+                    document.getElementById('verifyButton').textContent = 'Verify Code';
+                    document.getElementById('verifyButton').onclick = verifyPhoneCode;
+                    
+                    // Create invisible reCAPTCHA container
+                    if (!document.getElementById('recaptcha-container')) {
+                        const recaptchaDiv = document.createElement('div');
+                        recaptchaDiv.id = 'recaptcha-container';
+                        recaptchaDiv.style.display = 'none';
+                        document.body.appendChild(recaptchaDiv);
+                    }
+                    
+                    const success = await sendPhoneVerification(fullPhoneNumber);
+                    if (!success) {
+                        btn.disabled = false;
+                        btnText.textContent = 'Create Account';
+                        return;
+                    }
+                }
                 
-                showToast('Verification email sent! Please check your inbox.');
+                document.getElementById('verificationModal').classList.add('active');
                 btn.disabled = false;
                 btnText.textContent = 'Create Account';
 
@@ -1159,7 +1233,7 @@
             }
         }
 
-        // Check if email is verified
+        // Check email verification
         async function checkEmailVerified() {
             if (!pendingUser) {
                 showToast('No pending verification. Please sign up again.');
@@ -1170,17 +1244,11 @@
             await pendingUser.reload();
             
             if (pendingUser.emailVerified) {
-                // Save user data to Firestore
                 await db.collection('users').doc(pendingUser.uid).set(pendingUserData);
-                
                 closeModal('verificationModal');
                 showToast('Email verified successfully!');
-                
-                // Clear pending
                 pendingUser = null;
                 pendingUserData = null;
-                
-                // Load user data and show main app
                 await loadUserData(auth.currentUser.uid);
                 showMainApp();
             } else {
@@ -1188,17 +1256,48 @@
             }
         }
 
-        // Resend verification email
-        async function resendVerificationEmail() {
-            if (pendingUser) {
-                await pendingUser.sendEmailVerification();
-                showToast('Verification email resent! Please check your inbox.');
-            } else {
-                showToast('Please sign up again to receive a new verification email.');
+        // Verify phone code
+        async function verifyPhoneCode() {
+            const code = document.getElementById('otpCodeInput').value;
+            
+            if (!code || code.length !== 6) {
+                showToast('Please enter the 6-digit verification code');
+                return;
+            }
+            
+            try {
+                const result = await phoneVerificationId.confirm(code);
+                if (result.user) {
+                    await db.collection('users').doc(pendingUser.uid).set(pendingUserData);
+                    closeModal('verificationModal');
+                    showToast('Phone verified successfully!');
+                    pendingUser = null;
+                    pendingUserData = null;
+                    await loadUserData(auth.currentUser.uid);
+                    showMainApp();
+                }
+            } catch (error) {
+                showToast('Invalid verification code. Please try again.');
             }
         }
 
-        // Modified Login with verification check
+        // Resend verification
+        async function resendVerification() {
+            if (selectedVerificationMethod === 'email' && pendingUser) {
+                await pendingUser.sendEmailVerification();
+                showToast('Verification email resent!');
+            } else if (selectedVerificationMethod === 'phone' && pendingUser) {
+                const countryCode = document.getElementById('countryCode').value;
+                const phoneNumber = document.getElementById('signupPhoneNumber').value;
+                const fullPhoneNumber = countryCode + phoneNumber;
+                await sendPhoneVerification(fullPhoneNumber);
+                showToast('New verification code sent!');
+            } else {
+                showToast('Please sign up again to receive a new verification code.');
+            }
+        }
+
+        // Login with verification check
         async function handleLogin() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
@@ -1223,28 +1322,22 @@
                 const userCredential = await auth.signInWithEmailAndPassword(email, password);
                 const user = userCredential.user;
 
-                // Check if email is verified
                 await user.reload();
                 
-                if (!user.emailVerified) {
-                    showAuthError('Please verify your email first. Check your inbox for the verification link.');
-                    await auth.signOut();
-                    btn.disabled = false;
-                    btnText.textContent = 'Sign in';
-                    return;
-                }
-
                 const userDoc = await db.collection('users').doc(user.uid).get();
-
-                if (!userDoc.exists) {
-                    showAuthError('Account not found. Please sign up.');
-                    await auth.signOut();
-                    btn.disabled = false;
-                    btnText.textContent = 'Sign in';
-                    return;
+                
+                if (!userDoc.exists || !userDoc.data().isVerified) {
+                    if (user.emailVerified) {
+                        await db.collection('users').doc(user.uid).update({ isVerified: true });
+                    } else {
+                        showAuthError('Please verify your email or phone first. Check your inbox for the verification link.');
+                        await auth.signOut();
+                        btn.disabled = false;
+                        btnText.textContent = 'Sign in';
+                        return;
+                    }
                 }
 
-                // Login successful
                 await loadUserData(user.uid);
                 showMainApp();
                 
@@ -1255,7 +1348,7 @@
             }
         }
 
-        // Load user data (preserved from your original)
+        // Load user data
         async function loadUserData(uid) {
             try {
                 const doc = await db.collection('users').doc(uid).get();
@@ -1338,17 +1431,11 @@
             }
         }
 
-        // Placeholder functions for other features (preserve your original functionality)
+        // Placeholder functions
         function openTransferModal() { showToast('Transfer feature coming soon'); }
         function openCardApplication() { showToast('Card application coming soon'); }
         function openNotifications() { showToast('Notifications coming soon'); }
-        function openProfileModal() { 
-            if (userData) {
-                const profileDiv = document.getElementById('profileInfo') || document.createElement('div');
-                const modal = document.getElementById('profileModal');
-                if (modal) modal.classList.add('active');
-            }
-        }
+        function openProfileModal() { showToast('Profile feature coming soon'); }
         function viewTransactions() { showToast('Transaction history coming soon'); }
         function switchTab(tab, event) { 
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
